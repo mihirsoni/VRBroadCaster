@@ -8,7 +8,7 @@ app.get('/', function(req, res){
 });
 //Get Image
 app.get('/image.jpg',function(req,res){
-	res.sendfile('3bhk.jpg');
+	res.sendfile('land.jpg');
 });
 //Initiate Socket Connection
 io.on('connection', function(socket){
