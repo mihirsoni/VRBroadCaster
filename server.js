@@ -2,13 +2,15 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+//Render Web View
 app.get('/', function(req, res){
   res.sendfile('public/webEye.html');
 });
+//Get Image
 app.get('/image.jpg',function(req,res){
 	res.sendfile('3bhk.jpg');
 });
-
+//Initiate Socket Connection
 io.on('connection', function(socket){
 socket.on('newFrame',function(data){
 //	console.log(data);

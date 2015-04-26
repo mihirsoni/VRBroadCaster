@@ -31,11 +31,7 @@
 	<body>
 
 		<div id="container"></div>
-		<div id="info">
-			<a href="http://threejs.org" target="_blank">three.js webgl</a> - equirectangular panorama demo. photo by <a href="http://www.flickr.com/photos/jonragnarsson/2294472375/" target="_blank">Jón Ragnarsson</a>.<br />
-			drag equirectangular texture into the page.
-		</div>
-
+		
 		<script src="http://threejs.org/build/three.min.js"></script>
 
 		<script>
@@ -60,8 +56,6 @@
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
 				camera.target = new THREE.Vector3( 	0, 0, 0 );
-
-
 
 				scene = new THREE.Scene();
 
@@ -262,19 +256,12 @@
 			}
 
 		</script>
-		   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		   <script src="socket.io-1.2.0.js"></script>
+    <script src="jquery-1.11.1.js"></script>
     <script>
       var socket = io();
       var first=true;
       socket.on('webEye', function(msg){
-      	var a = new THREE.Euler( msg.x, msg.y, msg.z, 'XYZ' ); 
-      	var b = new THREE.Vector3( 0, 1, 0 ); 
-      	b.applyEuler(a);
-      	if(first){
-      		console.log(a);
-      		first=false;
-      	}
         updateXYZ(msg.x,msg.y,msg.z);
       });
     </script>
